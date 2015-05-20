@@ -1,8 +1,8 @@
-		Overlay Routing Protocol
+#Overlay Routing Protocol
 
 Resources required:
-	>> Core Emulator
-	>> Ruby 1.9.3 or greater
+		>> Core Emulator
+		>> Ruby 1.9.3 or greater
 
 License:
 	This softwere can not be modified for for commercial redistribution purposes
@@ -16,7 +16,7 @@ How to use this softwere:
 	3.Running the program:
 		1. Open terminal and cd to "/home/core/"
 		2. Run gen_weight.rb as 
-			<ruby /home/core/ov-lay/rbs/gen_weights.rb ~/addrs-to-links.txt ~/cost_file.txt interval>
+			<ruby /path/to/gen_weights.rb ~/addrs-to-links.txt ~/cost_file.txt interval>
 		3. Open the core emulator
 		4. Open the .imn file in core emulator and run the network
 		5. Use Run-Tool to run node.rb as following:
