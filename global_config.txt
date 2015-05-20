@@ -1,0 +1,8 @@
+mtu						72										#bytes
+update_interval			10  									#secs
+dump_interval			15  									#secs
+weight_file				/home/core/ov_lay/link_costs.txt		#weight_file path
+routing_table			/home/core/ov_lay/dumps/				#routing_table dump folder
+nta						/home/core/ov_lay/nodes-to-addrs.txt	#nodes to address file
+atl						/home/core/ov_lay/addrs-to-links.txt	#address to link file
+wakeup					/home/core/ov_lay/wakeup.txt			#address to link file
