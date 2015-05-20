@@ -5,9 +5,8 @@ Resources required:
 	>> Ruby 1.9.3 or greater
 
 License:
-	This softwere can not be modified for the redistribution for commercial purposes
+	This softwere can not be modified for for commercial redistribution purposes
 	unless otherwise specified and can be fully modified for the sole purpose of the user.
-	The author holds the sole proprietory of the available softweres.
 
 How to use this softwere:
 	1.Download the zip file.
@@ -16,7 +15,8 @@ How to use this softwere:
 
 	3.Running the program:
 		1. Open terminal and cd to "/home/core/"
-		2. Run gen_weight.rb as <ruby gen_weights.rb addrs-to-links.txt costfile.txt interval>
+		2. Run gen_weight.rb as 
+			<ruby /home/core/ov-lay/rbs/gen_weights.rb ~/addrs-to-links.txt ~/cost_file.txt interval>
 		3. Open the core emulator
 		4. Open the .imn file in core emulator and run the network
 		5. Use Run-Tool to run node.rb as following:
@@ -27,7 +27,10 @@ How to use this softwere:
 
 		WITH RUBY COMMAND--->
 		- cd into the ov-lay folder for each node terminal
-		- Run "ruby node.rb global_config.txt" for each node terminal
+		- Run 
+		"ruby /home/core/ov-lay/rbs/node.rb /home/core/ov-lay/configs/run_config/global_config.txt" 
+			
+		for each node terminal
 
 		OR
 
