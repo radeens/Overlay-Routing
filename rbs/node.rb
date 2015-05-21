@@ -14,14 +14,14 @@ require_relative 'security.rb'
 
 # PARSE THE config_file & SAVE THE VARIABLES 
 def parse_config
-    $mtu		= @config_file.gets.chomp.split[1]
+    $mtu	= @config_file.gets.chomp.split[1]
     @interval 	= @config_file.gets.chomp.split[1]
     @dump_int	= @config_file.gets.chomp.split[1]
     @costs_path	= @config_file.gets.chomp.split[1]
     @table_file	= @config_file.gets.chomp.split[1]
     @nta_path	= @config_file.gets.chomp.split[1]
     @atl_path	= @config_file.gets.chomp.split[1]
-    @wakeup		= @config_file.gets.chomp.split[1]
+    @wakeup	= @config_file.gets.chomp.split[1]
 end
 
 # GET ALL MY IPS
@@ -53,14 +53,14 @@ end
 def get_my_Ip(nextHopIp)
 	file = File.open(@atl_path, 'r')
 	while line = file.gets
-    	myip,nebor = line.chomp.split	
-    	if nebor == nextHopIp
-    		file.close
+	    	myip,nebor = line.chomp.split	
+	    	if nebor == nextHopIp
+	    		file.close
 			return myip
-    	elsif myip == nextHopIp
-    		file.close
-    		return nebor
-    	end   
+	    	elsif myip == nextHopIp
+	    		file.close
+	    		return nebor
+	    	end   
 	end
 end
 
@@ -146,16 +146,16 @@ end
 
 # GLOBAL AND CLASS VARIABLES
 def initialize_global()
-	$mtu 					= 0				# max bytes initialized 
-	$topology  				= Graph.new 	# topology of the network
+	$mtu 		= 0				# max bytes initialized 
+	$topology	= Graph.new 			# topology of the network
 
-	@@routing_table 		= {}			# dest=>{origin nexthop cost sq}
-	@@neighbors_interfaces	= Hash.new		# outgoint interfaces to node
-											# node => ip
-	@@visited_sq_nums 		= Array.new 	# visited packets
+	@@routing_table = {}				# dest=>{origin nexthop cost sq}
+	@@neighbors_interfaces= Hash.new		# outgoint interfaces to node
+							# node => ip
+	@@visited_sq_nums = Array.new 			# visited packets
 
-	@@new_key = OpenSSL::PKey::RSA.new 1024
-	@@public_keys 			= Hash.new 		# public keys of the all the nodes
+	@@new_key	= OpenSSL::PKey::RSA.new 1024
+	@@public_keys	= Hash.new 		# public keys of the all the nodes
 
 end
 
@@ -164,7 +164,7 @@ end
 
 #instance variables
 if ARGV[0]
-	config_path	= ARGV[0]					# config file path = get from args
+	config_path	= ARGV[0]		# config file path = get from args
 	@config_file= File.open(config_path,'r')# config File open
 else 
 	puts "USAGE: <node.rb> <config_file.txt>"
@@ -172,17 +172,17 @@ else
 end
 
 @node 		= Socket.gethostname  		# get the hostname
-@my_ips		= Array.new 				# ips of the current node
+@my_ips		= Array.new 			# ips of the current node
 @outgoing_packets = Hash.new			# graph of neighbors
 
-initialize_global()						# INIT GLOBALS
-parse_config()							# parse global_config file
-get_my_Ips()							# get all my ips
+initialize_global()				# INIT GLOBALS
+parse_config()					# parse global_config file
+get_my_Ips()					# get all my ips
 get_outgoing_cost()
 
 @config_file.close
 
-timer = -1								# do not start
+timer = -1					# do not start
 
 while (true)
 	if @node != "n12"
@@ -238,9 +238,9 @@ sec_num = 0
 $mtu = $mtu.to_i-8 #MAXIMUM TRANSMISSION UNIT
 while f = $stdin.gets
 	protocol = (f.chomp).split(" ",3)
-	type = protocol[0]							# Control
-	dest = protocol[1]							# DEST IP
-	data = protocol[2]							# input data
+	type = protocol[0]						# Control
+	dest = protocol[1]						# DEST IP
+	data = protocol[2]						# input data
 	dest_node = get_Node(dest)					# DEST NODE
 	if !@@routing_table[dest_node]				
 		puts "#{type} ERROR: HOST UNREACHABLE"
@@ -324,7 +324,7 @@ while f = $stdin.gets
 		key = @@public_keys[node]
 		msg = [Secure.encrypt(key,msg.to_s)]
 
-		while path.size > 0				    #[Nextnode|"E[DST|my_ip|data]"]
+		while path.size > 0		#[Nextnode|"E[DST|my_ip|data]"]
 			key = path.first
 			key = @@public_keys[key]
 			enc_Node = Secure.encrypt(key,node)
