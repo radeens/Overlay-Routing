@@ -9,8 +9,9 @@ License:
 	unless otherwise specified and can be fully modified for the sole purpose of the user.
 
 How to use this softwere:
-		1.Download the zip file.
-		2.Extract the zip file to "/home/core/" folder.
+		
+	1.Download the zip file.
+	2.Extract the zip file to "/home/core/" folder.
 
 
 	3.Running the program:
