@@ -1,14 +1,14 @@
 #Overlay Routing Protocol
 
-Resources required:
+##Resources required:
 		>> Core Emulator
 		>> Ruby 1.9.3 or greater
 
-License:
+##License:
 	This softwere can not be modified for for commercial redistribution purposes
 	unless otherwise specified and can be fully modified for the sole purpose of the user.
 
-How to use this softwere:
+##How to use this softwere:
 		
 	1.Download the zip file.
 	2.Extract the zip file to "/home/core/" folder.
